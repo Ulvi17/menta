@@ -58,7 +58,7 @@ const BagiraAI: React.FC<BagiraAIProps> = ({
   onCallEnd,
   onError,
   onFormSubmit,
-  modalTitle = "Confirm your booking",
+  modalTitle = "Confirm your consultation",
   formFields = { name: true, phone: true, email: true }
 }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -228,7 +228,7 @@ const BagiraAI: React.FC<BagiraAIProps> = ({
 
   return (
     <>
-      {/* Phone with Bagira AI integration */}
+      {/* Phone with Menta AI integration */}
       <div 
         className={`relative cursor-pointer group transition-all duration-200 ${
           isLoading ? 'pointer-events-none opacity-60' : ''
@@ -238,11 +238,12 @@ const BagiraAI: React.FC<BagiraAIProps> = ({
         <img 
           src={phoneImageSrc}
           alt="Phone illustration" 
-          className={`h-48 sm:h-64 lg:h-80 w-auto transition-transform duration-200 ${
+          className={`h-64 sm:h-80 lg:h-96 w-auto transition-transform duration-200 ${
             isActive ? 'scale-105' : 'group-hover:scale-105'
           }`}
+          style={{ maxWidth: '300px' }}
         />
-        {/* Bagira AI overlay on phone */}
+        {/* Menta AI overlay on phone */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className={`rounded-full ${buttonSizeClasses[buttonSize]} backdrop-blur-sm border border-white/20 transition-all duration-200 flex items-center justify-center ${
             isActive ? activeButtonColor : buttonColor

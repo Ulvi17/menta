@@ -181,6 +181,7 @@ function LiveChatWidget() {
       <div className="fixed bottom-6 right-6 z-50">
         {!isOpen && (
           <button
+            data-chat-button
             onClick={() => setIsOpen(true)}
             className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 relative"
           >
@@ -497,7 +498,7 @@ export default function MentaLanding() {
           </div>
         </section>
 
-        {/* Bagira AI Section */}
+        {/* Menta AI Section */}
         <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
@@ -507,7 +508,7 @@ export default function MentaLanding() {
                     AI-Powered Consultation
                   </Badge>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">
-                    Talk to <span className="text-blue-600">Bagira AI</span> Assistant
+                    Talk to <span className="text-blue-600">Menta AI</span> Assistant
                   </h2>
                   <p className="max-w-[600px] text-gray-600 md:text-xl/relaxed">
                     Get instant answers to your study abroad questions. Our AI assistant is here to guide you through 
@@ -527,6 +528,25 @@ export default function MentaLanding() {
                     <CheckCircle className="h-5 w-5 text-blue-600" />
                     <span className="text-gray-700">Personalized guidance</span>
                   </div>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => {
+                      // Scroll to bottom right chat widget
+                      const chatButton = document.querySelector('[data-chat-button]');
+                      if (chatButton) {
+                        chatButton.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    Text Chat
+                  </Button>
+                  <p className="text-sm text-gray-600 text-center sm:text-left">
+                    Or click the phone to start a voice conversation
+                  </p>
                 </div>
               </div>
               <div className="flex items-center justify-center">
