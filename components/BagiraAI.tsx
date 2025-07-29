@@ -238,10 +238,16 @@ const BagiraAI: React.FC<BagiraAIProps> = ({
         <img 
           src={phoneImageSrc}
           alt="Phone illustration" 
-          className={`h-64 sm:h-80 lg:h-96 w-auto transition-transform duration-200 ${
+          className={`transition-transform duration-200 ${
             isActive ? 'scale-105' : 'group-hover:scale-105'
           }`}
-          style={{ maxWidth: '300px' }}
+          style={{ 
+            width: '200px',
+            height: '400px',
+            objectFit: 'contain',
+            maxWidth: '100%',
+            maxHeight: '400px'
+          }}
         />
         {/* Menta AI overlay on phone */}
         <div className="absolute inset-0 flex items-center justify-center">
