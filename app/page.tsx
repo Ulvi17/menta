@@ -23,6 +23,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { createChat } from '@n8n/chat';
+import BagiraAI from "@/components/BagiraAI"
+import { bagiraAIConfig } from "@/config/bagira-ai"
 
 function LiveChatWidget() {
   const [isOpen, setIsOpen] = useState(false)
@@ -489,6 +491,63 @@ export default function MentaLanding() {
                   height="400"
                   alt="Students celebrating success"
                   className="mx-auto aspect-video overflow-hidden rounded-xl object-cover shadow-lg"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Bagira AI Section */}
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+            <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:gap-12">
+              <div className="flex flex-col justify-center space-y-4">
+                <div className="space-y-2 text-center">
+                  <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-100">
+                    AI-Powered Consultation
+                  </Badge>
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-gray-900">
+                    Talk to <span className="text-blue-600">Bagira AI</span> Assistant
+                  </h2>
+                  <p className="max-w-[600px] text-gray-600 md:text-xl/relaxed">
+                    Get instant answers to your study abroad questions. Our AI assistant is here to guide you through 
+                    the process, answer your queries, and help you make informed decisions about your education journey.
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600" />
+                    <span className="text-gray-700">24/7 availability</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600" />
+                    <span className="text-gray-700">Instant responses</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-blue-600" />
+                    <span className="text-gray-700">Personalized guidance</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <BagiraAI
+                  vapiPublicKey={bagiraAIConfig.vapiPublicKey}
+                  supabaseUrl={bagiraAIConfig.supabaseUrl}
+                  supabaseAnonKey={bagiraAIConfig.supabaseAnonKey}
+                  channel={bagiraAIConfig.channel}
+                  assistantId={bagiraAIConfig.assistantId}
+                  webhookUrl={bagiraAIConfig.webhookUrl}
+                  phoneImageSrc="/phone.svg"
+                  buttonSize="lg"
+                  buttonColor="bg-blue-600/80"
+                  activeButtonColor="bg-red-600/80"
+                  modalTitle="Confirm your consultation"
+                  formFields={{ name: true, phone: true, email: true }}
+                  onCallStart={(callId) => console.log('Call started:', callId)}
+                  onFormSubmit={async (formData, callId) => {
+                    console.log('Form submitted:', formData, callId);
+                    // Custom form submission logic here
+                  }}
                 />
               </div>
             </div>
