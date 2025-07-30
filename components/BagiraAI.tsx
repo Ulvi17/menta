@@ -173,7 +173,7 @@ const BagiraAI: React.FC<BagiraAIProps> = ({
     
     setIsLoading(true);
     try {
-      await vapiRef.current?.start(undefined, undefined, assistantId);
+      await vapiRef.current?.start(assistantId);
     } catch (err) {
       console.error(err);
       setIsLoading(false);
