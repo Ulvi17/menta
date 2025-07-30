@@ -530,23 +530,6 @@ export default function MentaLanding() {
                   </div>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 pt-4">
-                  <Button 
-                    size="lg" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() => {
-                      // Scroll to bottom right chat widget
-                      const chatButton = document.querySelector('[data-chat-button]');
-                      if (chatButton) {
-                        chatButton.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    Text Chat
-                  </Button>
-                  <p className="text-sm text-gray-600 text-center sm:text-left">
-                    Or click the phone to start a voice conversation
-                  </p>
                 </div>
               </div>
               <div className="flex items-center justify-center">
